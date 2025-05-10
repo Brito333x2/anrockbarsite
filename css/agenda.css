@@ -1,0 +1,182 @@
+/* Reset de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página e fonte */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.agenda {
+    padding: 50px 0;
+}
+
+#showsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centraliza os cards */
+}
+
+/* Estilo dos cards */
+.card {
+    width: 100%; /* Fica com largura total da coluna */
+    max-width: 350px; /* Limita a largura máxima */
+    margin: 0 auto; /* Garante que o card fique centralizado dentro da coluna */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover no card */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo da imagem do card */
+.card-img-top {
+    width: 100%;
+    height: 250px; /* Tamanho maior para a imagem */
+    object-fit: cover; /* A imagem se ajusta sem distorcer */
+}
+
+/* Conteúdo do card */
+.card-body {
+    padding: 15px;
+    background-color: #ffffff; /* Fundo branco para o conteúdo do card */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Responsividade - Estilo para telas grandes */
+@media (min-width: 800px) {
+    #showsContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas de igual largura */
+        gap: 20px;
+    }
+}
+
+/* Responsividade - Para telas menores que 800px */
+@media (max-width: 799px) {
+    #showsContainer {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+}
+
+/* Ajuste no modal */
+.modal-dialog {
+    max-width: 600px; /* Aumenta o tamanho do modal */
+    margin: 30px auto; /* Centraliza o modal na tela */
+}
+
+.modal-content {
+    border-radius: 10px; /* Cantos arredondados no modal */
+    background-color: #ffffff;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+}
+
+/* Estilo do header do modal */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0; /* Cantos arredondados no header */
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.modal-footer {
+    border-top: 1px solid #ccc;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Estilo dos botões do modal */
+.btn-secondary, .btn-primary {
+    border-radius: 20px; /* Cantos arredondados nos botões */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilo do botão fechar */
+.btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* Ajustes gerais do layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: #555;
+    font-size: 1rem;
+}
