@@ -1,0 +1,100 @@
+let showSelecionado = null;
+
+fetch('shows.json')
+  .then(response => response.json())
+  .then(shows => {
+    const carouselInner = document.getElementById('carouselShows');
+
+    shows.forEach((show, index) => {
+      const item = document.createElement('div');
+      item.className = `carousel-item${index === 0 ? ' active' : ''}`;
+      item.innerHTML = `
+        <img src="${show.imagem}" class="d-block w-100" alt="${show.nome}" style="cursor: pointer;">
+      `;
+      item.querySelector('img').addEventListener('click', () => {
+        showSelecionado = show; // guarda o show clicado
+        document.getElementById('showModalLabel').textContent = show.nome;
+        document.getElementById('modalContent').innerHTML = `
+          <p><strong>Data:</strong> ${show.data} | <strong>Horário:</strong> ${show.horario}</p>
+          <p><strong>Descrição:</strong> ${show.descricao}</p>
+          <p><strong>Preço:</strong> ${show.preco}</p>
+        `;
+        const modal = new bootstrap.Modal(document.getElementById('showModal'));
+        modal.show();
+      });
+      carouselInner.appendChild(item);
+    });
+  });
+
+document.getElementById('btnReservar').addEventListener('click', () => {
+  const qtd = parseInt(document.getElementById('quantidade').value);
+  if (!showSelecionado || qtd < 1) return;
+
+  const numeroWhatsApp = "5511961201454"; // substitua pelo número real com DDI e DDD
+  const mensagem = `Olá! Gostaria de reservar ${qtd} ingresso(s) para o show: ${showSelecionado.nome} - ${showSelecionado.data} às ${showSelecionado.horario}.`;
+
+  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+  window.open(url, '_blank');
+});
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Navbar shrink function
+    var navbarShrink = function () {
+        const navbarCollapsible = document.body.querySelector('#mainNav');
+        if (!navbarCollapsible) {
+            return;
+        }
+        if (window.scrollY === 0) {
+            navbarCollapsible.classList.remove('navbar-shrink')
+        } else {
+            navbarCollapsible.classList.add('navbar-shrink')
+        }
+
+    };
+
+    // Shrink the navbar 
+    navbarShrink();
+
+    // Shrink the navbar when page is scrolled
+    document.addEventListener('scroll', navbarShrink);
+
+    // Activate Bootstrap scrollspy on the main nav element
+    const mainNav = document.body.querySelector('#mainNav');
+    if (mainNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#mainNav',
+            rootMargin: '0px 0px -40%',
+        });
+    };
+
+    // Collapse responsive navbar when toggler is visible
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
+    });
+
+});
+
+// Remover a tela de carregamento quando a página terminar de carregar
+window.addEventListener('load', function () {
+    const loadingScreen = document.getElementById('loading-screen');
+
+    // Aguarda 2 segundos após o carregamento da página
+    setTimeout(function () {
+        // Adiciona classe para iniciar o fade-out
+        loadingScreen.classList.add('fade-out');
+
+        // Após 1 segundo (tempo da transição), esconde a div completamente
+        setTimeout(function () {
+            loadingScreen.style.display = 'none';
+        }, 1000); // igual ao tempo da transição CSS
+    }, 2000);
+});
+
