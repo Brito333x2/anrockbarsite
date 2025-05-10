@@ -1,105 +1,484 @@
-let showSelecionado = null;
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-fetch('shows.json')
-  .then(response => response.json())
-  .then(shows => {
-    const carouselInner = document.getElementById('carouselShows');
 
-    // Filtrar apenas shows com "geral": false
-    const showsFiltrados = shows.filter(show => show.geral === false);
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>AN Rock Bar</title>
+    <link rel="icon" type="image/x-ico" href="assets/img/icoan.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
 
-    showsFiltrados.forEach((show, index) => {
-      const item = document.createElement('div');
-      item.className = `carousel-item${index === 0 ? ' active' : ''}`;
-      item.innerHTML = `
-        <img src="${show.imagem}" class="d-block w-100" alt="${show.nome}" style="cursor: pointer;">
-      `;
+<!-- Tela de Carregamento -->
+<div id="loading-screen">
+    <img src="assets/img/anlogo.png" alt="Carregando..." class="loading-image">
+</div>
 
-      item.querySelector('img').addEventListener('click', () => {
-        showSelecionado = show; // guarda o show clicado
-        document.getElementById('showModalLabel').textContent = show.nome;
-        document.getElementById('modalContent').innerHTML = `
-          <p><strong>Data:</strong> ${show.data} | <strong>Horário:</strong> ${show.horario}</p>
-          <p><strong>Descrição:</strong> ${show.descricao}</p>
-          <p><strong>Preço:</strong> ${show.preco}</p>
-        `;
-        const modal = new bootstrap.Modal(document.getElementById('showModal'));
-        modal.show();
+<style>
+  html.blocked, body.blocked {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+  }
+  .block-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+  }
+  .block-message h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff4444;
+  }
+  .block-message p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+
+  /* Esconde o conteúdo da página até a verificação */
+  body:not(.allowed) > *:not(.block-message) {
+    display: none;
+  }
+</style>
+<script>
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (!isMobile) {
+    document.documentElement.classList.add("blocked");
+    document.body.classList.add("blocked");
+    document.write(`
+      <div class="block-message">
+        <h1>😕 Acesso bloqueado</h1>
+        <p>Este site está disponível apenas em dispositivos móveis.<br>
+        Por favor, acesse pelo seu celular.</p>
+      </div>
+    `);
+  } else {
+    document.body.classList.add("allowed");
+  }
+</script>
+
+
+<body id="page-top">
+    <!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#page-top">
+            <img src="assets/img/anlogo.png" alt="AN Rock Bar" style="width: 65px;"> <!-- Logo do AN Rock Bar -->
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Próximos Shows</a></li>
+                <li class="nav-item"><a class="nav-link" href="#new-contact">Contato</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#grupozap">
+                        <i class="fab fa-whatsapp"></i> Grupo WhatsApp
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/anrockbar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/ANROCKBAR/" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Masthead (Header)-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+
+                    <a class="btn btn-primary" href="#projects">Ver Próximos Shows</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">Bem-vindo ao AN Rock Bar!</h2>
+                    <p class="text-white-50">
+                        O AN Rock Bar é o lugar perfeito para quem ama rock'n roll e boa música ao vivo. Venha conferir a nossa agenda de shows e se divertir com a gente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeo do YouTube</section>-->
+ <section id="video" class="text-center">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-white mb-4">Assista ao nosso vídeo</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <video 
+                src="assets/img/casa.mp4" 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                class="w-100 h-auto" 
+                style="pointer-events: none;">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+        </div>
+    </div>
+</section>
+
+
+
+    <section class="projects-section bg-light" id="projects">
+        <div class="container px-4 px-lg-5">
+          <h2 class="text-center mb-4">Próximos Shows</h2>
+          <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="carouselShows"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+<div class="text-center">
+    <a href="agenda.html" class="btn-agenda">Agenda Completa</a>
+</div>
+
+
+<!-- Modal de Informações do Show -->       
+<div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="showModalLabel">Detalhes do Show</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modalContent">
+          <!-- Conteúdo preenchido via JS -->
+        </div>
+        <div class="modal-footer">
+          <div class="d-flex align-items-center">
+            <label for="quantidade" class="form-label me-2 mb-0">Quantidade:</label>
+            <input type="number" id="quantidade" class="form-control" min="1" value="1" style="width: 80px;">
+          </div>
+          <button id="btnReservar" class="btn btn-success">Reservar pelo WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<!-- Novo Contato -->
+<section class="new-contact-section bg-dark" id="new-contact">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5">
+
+      <!-- Localização -->
+      <div class="col-md-6 mb-4">
+        <div class="new-contact-card py-4 h-100">
+          <div class="new-contact-card-body text-center">
+            <h4 class="text-uppercase m-0">Localização</h4>
+            <hr class="my-4 mx-auto" />
+            <iframe 
+              src="https://www.google.com/maps?q=Av. Nove de Julho,+1266,+Poá,+São Paulo&output=embed" 
+              width="100%" 
+              height="350" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="new-contact-card py-4 h-100">
+          <div class="new-contact-card-body text-center">
+            <i class="fas fa-envelope text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">Email</h4>
+            <hr class="my-4 mx-auto" />
+            <div class="new-contact-info">
+              <a href="mailto:an.estudios.producoes@gmail.com">an.estudios.producoes@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!-- Telefone (WhatsApp) -->
+<div class="col-md-6 col-lg-3 mb-4">
+  <div class="new-contact-card py-4 h-100">
+    <div class="new-contact-card-body text-center">
+      <i class="fab fa-whatsapp text-success mb-2"></i>
+      <h4 class="text-uppercase m-0">WhatsApp</h4>
+      <hr class="my-4 mx-auto" />
+      <div class="new-contact-info">
+        <a href="https://wa.me/5511911297289" target="_blank">+55 (11) 91129-7289</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Grupo WhatsApp -->
+      <div class="col-md-6 col-lg-3 mb-4" id="grupozap"></div>
+        <div class="new-contact-card py-4 h-100">
+          <div class="new-contact-card-body text-center">
+            <i class="fab fa-whatsapp text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">Grupo WhatsApp</h4>
+            <hr class="my-4 mx-auto" />
+            <div class="new-contact-info">
+              <a href="https://chat.whatsapp.com/II7y5Lcye2Q1yLaGwQuYK9" target="_blank">
+                Entrar no grupo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilo para a nova seção de Contato */
+  .new-contact-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 60px 0;
+  }
+
+  /* Estilo para os novos cards de cada informação */
+  .new-contact-card {
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Efeito de hover nos novos cards */
+  .new-contact-card:hover {
+    transform: translateY(-10px);
+  }
+
+  /* Estilo para os ícones */
+  .new-contact-card .fas {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+
+  /* Título das novas seções */
+  .new-contact-card h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+  }
+
+  /* Linha de separação */
+  .new-contact-card hr {
+    border-top: 2px solid #ffffff;
+    width: 50px;
+    margin: 20px auto;
+  }
+
+  /* Estilo do texto pequeno */
+  .new-contact-card .new-contact-info {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Estilo para links de email */
+  .new-contact-card .new-contact-info a {
+    color: #c72222;
+    text-decoration: none;
+  }
+
+  /* Efeito hover no link de email */
+  .new-contact-card .new-contact-info a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .new-contact-section .col-md-4 {
+      margin-bottom: 20px;
+    }
+
+    .new-contact-section iframe {
+      height: 250px;
+    }
+  }
+
+  /* Ajuste para o iframe do Google Maps */
+  .new-contact-section iframe {
+    border-radius: 10px;
+    border: 0;
+  }
+</style>
+
+
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50">
+        <div class="container px-4 px-lg-5">Copyright &copy; ANROCKBAR</div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="scripts.js"></script>
+
+</body>
+
+
+<!-- Modal Convite para o Grupo WhatsApp -->
+<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="whatsappModalLabel">Fique Ligado na Nossa Agenda de Shows!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Entre no nosso grupo de WhatsApp e receba as atualizações sobre a agenda de shows</p>
+        <a href="https://chat.whatsapp.com/II7y5Lcye2Q1yLaGwQuYK9" target="_blank">
+        Entrar no grupo
+        </a>
+        <button type="button" class="btn btn-secondary w-100 mt-3" data-bs-dismiss="modal">
+          Agora Não
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Espera 10 segundos após o carregamento da página
+  window.onload = function() {
+    setTimeout(function() {
+      // Mostra o modal de WhatsApp
+      var whatsappModal = new bootstrap.Modal(document.getElementById('whatsappModal'), {
+        keyboard: false  // Impede que o modal seja fechado com a tecla ESC
       });
+      whatsappModal.show();  // Exibe o modal
+    }, 10000); // 10000 milissegundos = 10 segundos
+  };
+</script>
 
-      carouselInner.appendChild(item);
-    });
-  });
+<style> 
+/* Estilo para o modal com "visual de alerta" */
+#whatsappModal .modal-content {
+  background-color: #ff3b30; /* Vermelho chamativo de alerta */
+  color: #fff;
+  border-radius: 10px;
+  border: 2px solid #d9534f; /* Borda vermelha */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  animation: shake 0.5s ease-in-out 0s infinite; /* Animação de shake */
+}
 
-document.getElementById('btnReservar').addEventListener('click', () => {
-  const qtd = parseInt(document.getElementById('quantidade').value);
-  if (!showSelecionado || qtd < 1) return;
+/* Efeito de shake no modal */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
 
-  const numeroWhatsApp = "5511961201454"; // substitua pelo número real com DDI e DDD
-  const mensagem = `Olá! Gostaria de reservar ${qtd} ingresso(s) para o show: ${showSelecionado.nome} - ${showSelecionado.data} às ${showSelecionado.horario}.`;
+#whatsappModal .modal-header {
+  border-bottom: 2px solid #d9534f; /* Linha de separação vermelha */
+}
 
-  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, '_blank');
-});
-window.addEventListener('DOMContentLoaded', event => {
+#whatsappModal .modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
+#whatsappModal .modal-body {
+  padding: 30px 20px;
+  text-align: center;
+}
 
-    };
+#whatsappModal .modal-body p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-    // Shrink the navbar 
-    navbarShrink();
+#whatsappModal .btn-success {
+  background-color: #28a745; /* Verde, como o botão do WhatsApp */
+  border: none;
+  padding: 15px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
 
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
+#whatsappModal .btn-success:hover {
+  background-color: #218838; /* Tom mais escuro de verde para hover */
+}
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
+#whatsappModal .btn-secondary {
+  background-color: #f1c40f; /* Amarelo vibrante para o botão "Agora Não" */
+  border: none;
+  padding: 15px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
+#whatsappModal .btn-secondary:hover {
+  background-color: #f39c12; /* Tom mais escuro de amarelo para hover */
+}
 
-});
+/* Estilo do fundo do modal */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+}
 
-// Remover a tela de carregamento quando a página terminar de carregar
-window.addEventListener('load', function () {
-    const loadingScreen = document.getElementById('loading-screen');
+</style> 
 
-    // Aguarda 2 segundos após o carregamento da página
-    setTimeout(function () {
-        // Adiciona classe para iniciar o fade-out
-        loadingScreen.classList.add('fade-out');
-
-        // Após 1 segundo (tempo da transição), esconde a div completamente
-        setTimeout(function () {
-            loadingScreen.style.display = 'none';
-        }, 1000); // igual ao tempo da transição CSS
-    }, 2000);
-});
-
+</html>
+ 
