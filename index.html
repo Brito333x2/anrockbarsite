@@ -22,7 +22,57 @@
     <img src="assets/img/anlogo.png" alt="Carregando..." class="loading-image">
 </div>
 
+<style>
+  html.blocked, body.blocked {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+  }
+  .block-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+  }
+  .block-message h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff4444;
+  }
+  .block-message p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
 
+  /* Esconde o conteúdo da página até a verificação */
+  body:not(.allowed) > *:not(.block-message) {
+    display: none;
+  }
+</style>
+<script>
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (!isMobile) {
+    document.documentElement.classList.add("blocked");
+    document.body.classList.add("blocked");
+    document.write(`
+      <div class="block-message">
+        <h1>😕 Acesso bloqueado</h1>
+        <p>Este site está disponível apenas em dispositivos móveis.<br>
+        Por favor, acesse pelo seu celular.</p>
+      </div>
+    `);
+  } else {
+    document.body.classList.add("allowed");
+  }
+</script>
+
+    
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
