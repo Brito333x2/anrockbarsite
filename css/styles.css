@@ -66,15 +66,21 @@
 
 /* Tablets */
 @media (max-width: 992px) {
+  .carousel-item .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .show-card {
-    flex: 1 1 60%;
-    max-width: 60%;
+    flex: 1 1 90%;
+    max-width: 90%;
   }
 
   .show-card img {
-    height: 320px; /* Altura aumentada para tablet */
+    height: 700px; /* Altura aumentada para celular */
   }
 }
+
 
 /* Celulares */
 @media (max-width: 576px) {

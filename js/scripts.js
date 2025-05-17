@@ -59,7 +59,7 @@ fetch('admin/shows.json')
     // Inicializa com base na largura da janela
     function iniciarCarrossel() {
       const largura = window.innerWidth;
-      const cardsPorSlide = largura < 576 ? 1 : 3;
+      const cardsPorSlide = largura < 993 ? 1 : 3;
       montarCarrossel(cardsPorSlide);
     }
 
