@@ -8,6 +8,79 @@
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
   <link href="css/agenda.css" rel="stylesheet" />
+
+  <style>
+    #searchInput {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 250px;
+      max-width: 100%;
+    }
+
+    #searchInput::placeholder {
+      color: #aaa;
+    }
+
+    #searchInput:focus {
+      border-color: #ff4500;
+      box-shadow: 0 0 5px #ff4500;
+      background-color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      #searchInput {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+
+    #monthFilter {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+      cursor: pointer;
+      width: 200px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+
+    #monthFilter:focus {
+      border-color: #ff4500;
+      box-shadow: 0 0 5px #ff4500;
+    }
+
+    @media (max-width: 480px) {
+      #monthFilter {
+        max-width: none;
+        font-size: 15px;
+        padding: 10px 14px;
+        border-radius: 6px;
+      }
+    }
+
+    /* Alinhamento condicional do título */
+    h2.text-center {
+      text-align: center;
+    }
+
+    @media (min-width: 800px) and (max-width: 1200px) {
+      h2.text-center {
+        text-align: left;
+        margin-left: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,80 +93,19 @@
     
     <!-- Botão para voltar à página inicial -->
     <a href="index.html" 
-       style="padding: 8px 16px; background-color:rgb(255, 0, 0); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; white-space: nowrap; ">
+       style="padding: 8px 16px; background-color:rgb(255, 0, 0); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; white-space: nowrap;">
       Página Inicial
     </a>
     
-    <input type="text" id="searchInput" placeholder="Buscar show..." style="padding: 6px 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;">
+    <input type="text" id="searchInput" placeholder="Buscar show...">
   </div>
 </nav>
-
-<style>
-  #searchInput {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1.5px solid #ccc;
-    font-size: 16px;
-    color: #333;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 250px;
-    max-width: 100%;
-  }
-
-  #searchInput::placeholder {
-    color: #aaa;
-  }
-
-  #searchInput:focus {
-    border-color: #ff4500;
-    box-shadow: 0 0 5px #ff4500;
-    background-color: #fff;
-  }
-
-  @media (max-width: 480px) {
-    #searchInput {
-      width: 100%;
-      font-size: 14px;
-    }
-  }
-
-  #monthFilter {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1.5px solid #ccc;
-    font-size: 16px;
-    color: #333;
-    outline: none;
-    cursor: pointer;
-    width: 200px;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-  }
-
-  #monthFilter:focus {
-    border-color: #ff4500;
-    box-shadow: 0 0 5px #ff4500;
-  }
-
-  @media (max-width: 480px) {
-    #monthFilter {
-      max-width: none;
-      font-size: 15px;
-      padding: 10px 14px;
-      border-radius: 6px;
-    }
-  }
-</style>
 
 <!-- Seção Agenda -->
 <section class="agenda" id="agenda">
   <div class="container">
     <h2 class="text-center">Agenda de Shows</h2>
-    <select id="monthFilter" style="padding: 6px 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;">
+    <select id="monthFilter">
       <option value="">Todos os Meses</option>
     </select>
     

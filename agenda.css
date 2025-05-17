@@ -1,0 +1,406 @@
+/* Estilo geral */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #222;
+  padding: 15px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.navbar .navbar-brand img {
+  width: 100px;
+}
+
+.navbar-text {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 9999;
+}
+
+/* Barra de Pesquisa e Filtro */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  background-color: #333;
+  color: #eee;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: #bbb;
+}
+
+.search-container input[type="text"]:focus {
+  box-shadow: 0 2px 8px #ff6600;
+  background-color: #444;
+}
+
+/* Botão de filtro */
+.filter-btn {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  background-color: #ff8533;
+  transform: translateY(-3px);
+}
+
+.filter-btn:active {
+  transform: translateY(1px);
+}
+
+/* Seção Agenda */
+.agenda {
+  background-color: #1e1e1e;
+  padding: 80px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -80px;
+}
+
+/* Container de cards usando grid com espaçamento adequado */
+.agenda .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* espaçamento maior */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cards: altura fixa, mesma largura, layout flex */
+.card {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 610px; /* aumentei a altura para acomodar imagem maior */
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+
+/* Hover com leve elevação */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagem do card */
+.card-img-top {
+  width: 100%;
+  height: 370px; /* aumentei a altura */
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: top;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* Corpo do card: flex para distribuir texto e botão */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-top: 15px;
+  background-color: #333;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Título: tamanho controlado, uma linha só com reticências */
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Parágrafo: no máximo 3 linhas com reticências */
+.card p {
+  font-size: 16px;
+  color: #bbb;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Botão: sempre fixado no final, centralizado e com margem */
+.card .btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: auto; /* empurra para o fim */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+}
+
+.card .btn:hover {
+  background-color: #666;
+  transform: translateY(-5px);
+}
+
+.card .btn:active {
+  transform: translateY(2px);
+}
+
+/* Responsividade */
+
+/* Tablets e telas médias */
+@media (max-width: 900px) {
+  .agenda .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* duas colunas fixas */
+    gap: 20px;
+    justify-content: center; /* centraliza os cards no container */
+  }
+
+  .card {
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza o conteúdo horizontalmente */
+    margin: 0 auto;
+  }
+
+  .card-img-top {
+    height: 220px;
+    width: 90%; /* imagem com largura menor */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .card-body {
+    padding-top: 10px;
+    width: 90%; /* conteúdo do card mais estreito */
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card p {
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+  }
+
+  .card .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .search-container {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .search-container input[type="text"] {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .filter-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Remover grid no celular e empilhar os cards em coluna única */
+@media (max-width: 576px) {
+  .agenda .cards-container {
+    display: block; /* remover grid no celular */
+    width: 100vw;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .agenda .cards-container .card {
+    width: 100%;
+    margin-bottom: 20px; /* espaçamento entre cards */
+    height: auto; /* altura automática para melhor adaptação */
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 300px; /* aumentei aqui também */
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .card-body {
+    padding-top: 10px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+  }
+
+  .card .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .search-container {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .search-container input[type="text"] {
+    width: 100%;
+  }
+
+  .filter-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* Modal Customizado */
+.modal-custom {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.modal-custom.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* Modal de Show */
+.modal-content {
+  background-color: #222;
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  color: #fff;
+}
+
+.modal-header {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-footer .btn {
+  background-color: #444;
+  color: white;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.modal-footer .btn:hover {
+  background-color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .agenda h2 {
+    font-size: 32px;
+  }
+}
+
