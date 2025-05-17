@@ -1,144 +1,217 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+  background: linear-gradient(135deg, #121212, #1f1f1f);
   color: #f5f5f5;
-  padding: clamp(30px, 5vw, 50px) clamp(10px, 5vw, 20px);
+  padding: 40px 30px; /* mais espaçamento */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* centralizar vertical */
   min-height: 100vh;
   background-attachment: fixed;
+  text-align: center; /* texto centralizado */
 }
 
-/* Títulos */
 h2 {
-  margin-bottom: clamp(20px, 4vw, 30px);
-  color: #a52a2a;
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  text-shadow: 1px 1px 6px #000;
+  color: #ff4444;
+  font-size: 3rem; /* maior título */
+  text-shadow: 1.5px 1.5px 5px #000;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-/* Formulário */
-form {
-  background: #1b1b1b;
-  padding: clamp(24px, 5vw, 35px);
-  border-radius: 16px;
+.container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px; /* maior container */
+  margin: 0 auto;
+}
+
+form {
+  background: #1e1e1e;
+  padding: 30px 35px; /* maior padding */
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  gap: clamp(14px, 3vw, 18px);
+  gap: 18px;
+  margin-bottom: 25px;
+  align-items: center; /* centraliza os itens do form */
+  text-align: center;
 }
 
 input,
 textarea {
-  background: #2b2b2b;
-  color: #fff;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: clamp(14px, 4vw, 18px);
-  font-size: clamp(1rem, 4vw, 1.2rem);
-  transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 18px 22px; /* maior padding */
+  font-size: 1.5rem;  /* fonte maior */
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #eee;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+  text-align: center; /* texto centralizado */
 }
 
 input:focus,
 textarea:focus {
-  border-color: #8b0000;
+  border-color: #ff4444;
   outline: none;
 }
 
 textarea {
-  min-height: 120px;
   resize: vertical;
+  min-height: 140px; /* maior textarea */
 }
 
-/* Botões */
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
 button {
-  background-color: #8b0000;
-  color: white;
-  padding: clamp(12px, 4vw, 16px) clamp(20px, 6vw, 28px);
-  font-size: clamp(1rem, 4.5vw, 1.2rem);
+  background: #ff4444;
+  color: #fff;
   border: none;
+  padding: 24px 32px;
+  font-size: 1.6rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 700;
   text-transform: uppercase;
-  font-weight: bold;
+  transition: background 0.25s ease;
+  width: 100%;
+  max-width: 360px;
+  align-self: center;
+  box-shadow: 0 6px 18px rgba(255, 68, 68, 0.7);
 }
 
 button:hover {
-  background-color: #a52a2a;
-  transform: scale(1.03);
+  background: #e22a2a;
+  box-shadow: 0 8px 22px rgba(226, 42, 42, 0.9);
 }
 
-form button[style*="red"] {
-  background: #a00000;
-}
-
-form button[style*="red"]:hover {
-  background: #cc0000;
-}
-
-/* Links */
-a {
-  color: #dddddd;
-  margin-top: 20px;
-  font-size: clamp(1rem, 3.5vw, 1.2rem);
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #a52a2a;
-}
-
-/* Lista */
-ul {
-  list-style: none;
-  margin-top: 30px;
-  padding-left: 0;
-  width: 100%;
-  max-width: 750px;
-}
-
-li {
-  background: #1e1e1e;
-  margin-bottom: 18px;
-  padding: clamp(18px, 4vw, 22px);
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-li a {
-  color: #fff;
-  background: #333;
-  padding: clamp(10px, 4vw, 14px) clamp(12px, 4vw, 18px);
-  border-radius: 8px;
-  font-size: clamp(0.95rem, 4vw, 1.05rem);
+.delete-button {
+  background: #444;
+  color: #eee;
+  border: 1px solid #666;
+  padding: 24px 32px;
+  font-size: 1.6rem;
+  border-radius: 10px;
   transition: background 0.3s ease;
+  width: 100%;
+  max-width: 360px;
+  align-self: center;
+  margin-top: 25px;
+  box-shadow: 0 6px 18px rgba(68, 68, 68, 0.7);
+}
+
+.delete-button:hover {
+  background: #b00000;
+  color: #fff;
+  border-color: #900;
+  box-shadow: 0 8px 22px rgba(176, 0, 0, 0.9);
+}
+
+.cancel-link {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  color: #ccc;
   text-decoration: none;
+  font-size: 1.4rem;
 }
 
-li a:hover {
-  background: #8b0000;
+.cancel-link:hover {
+  text-decoration: underline;
+  color: #ff4444;
 }
 
-/* Responsivo extra */
+/* Responsivo para celulares */
 @media (max-width: 480px) {
-  li {
-    flex-direction: column;
-    align-items: flex-start;
+  body {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  form {
+    padding: 25px 28px;
+    gap: 20px;
+  }
+
+  input,
+  textarea {
+    padding: 20px 26px;
+    font-size: 1.5rem;
+  }
+
+  button,
+  .delete-button {
+    font-size: 1.6rem;
+    padding: 24px 32px;
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
+  label {
+    font-size: 1.3rem;
     gap: 12px;
   }
+}
 
-  li a {
-    align-self: flex-end;
+/* Imagem de fundo fixa */
+.background-image {
+  position: fixed;       
+  top: 0;
+  left: 0;
+  width: 100vw;          
+  height: 100vh;         
+  background-image: url('anfundo.jpg'); 
+  background-size: cover;       
+  background-position: center;  
+  filter: brightness(0.4);      
+  z-index: -1;                  
+  pointer-events: none;         
+}
+
+
+.background-image {
+  position: fixed;       
+  top: 0;
+  left: 0;
+  width: 100vw;          
+  height: 100vh;         
+  background-image: url('anfundo.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);  /* opcional: deixe mais claro para a camada escura ter efeito */
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;  /* importante para conter o pseudo-elemento */
   }
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.84); /* camada escura semitransparente */
+  pointer-events: none;  /* para não interferir em cliques */
 }

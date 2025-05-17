@@ -13,6 +13,8 @@ if (!isset($_SESSION['logado'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <div class="background-image"></div>
+  <div class="container">
     <h2>Painel de Administração</h2>
     <p>Bem-vindo, admin!</p>
     <a href="adicionar.php"><button>Adicionar Show</button></a>

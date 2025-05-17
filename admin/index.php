@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$usuario_correto = 'admin';
-$senha_correta = '1234';
+$usuario_correto = 'anrockbar';
+$senha_correta = '1356';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'];
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="background-image"></div>
+  <div class="container">
     <h2>Login do Admin</h2>
     <?php if (isset($erro)) echo "<p style='color:red;'>$erro</p>"; ?>
     <form method="POST">

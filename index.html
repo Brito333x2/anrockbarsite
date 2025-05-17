@@ -23,59 +23,11 @@
     <img src="assets/img/anlogo.png" alt="Carregando..." class="loading-image">
 </div>
 
-<style>
-  html.blocked, body.blocked {
-    margin: 0;
-    padding: 0;
-    background: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    height: 100%;
-    overflow: hidden;
-  }
-  .block-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 90%;
-  }
-  .block-message h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #ff4444;
-  }
-  .block-message p {
-    font-size: 1.2rem;
-    color: #ccc;
-  }
 
-  /* Esconde o conteúdo da página até a verificação */
-  body:not(.allowed) > *:not(.block-message) {
-    display: none;
-  }
-</style>
-<script>
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if (!isMobile) {
-    document.documentElement.classList.add("blocked");
-    document.body.classList.add("blocked");
-    document.write(`
-      <div class="block-message">
-        <h1>😕 Acesso bloqueado</h1>
-        <p>Este site está disponível apenas em dispositivos móveis.<br>
-        Por favor, acesse pelo seu celular.</p>
-      </div>
-    `);
-  } else {
-    document.body.classList.add("allowed");
-  }
-</script>
 
 
 <body id="page-top">
-    <!-- Navigation-->
+<!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#page-top">
@@ -93,18 +45,23 @@
                 <li class="nav-item"><a class="nav-link" href="#projects">Próximos Shows</a></li>
                 <li class="nav-item"><a class="nav-link" href="#new-contact">Contato</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#grupozap">
+                    <a class="nav-link" href="https://chat.whatsapp.com/II7y5Lcye2Q1yLaGwQuYK9">
                         <i class="fab fa-whatsapp"></i> Grupo WhatsApp
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.instagram.com/anrockbar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                    <a class="nav-link" href="https://www.instagram.com/anrockbar" target="_blank">
                         <i class="fab fa-instagram"></i> Instagram
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://www.facebook.com/ANROCKBAR/" target="_blank">
                         <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/@AnRockBarTv" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
                     </a>
                 </li>
             </ul>
@@ -114,16 +71,15 @@
 
 
     <!-- Masthead (Header)-->
-    <header class="masthead">
-        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-            <div class="d-flex justify-content-center">
-                <div class="text-center">
-
-                    <a class="btn btn-primary" href="#projects">Ver Próximos Shows</a>
-                </div>
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center" style="margin-top: 120px;">
+                <a class="btn btn-primary" href="#projects">Ver Próximos Shows</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- About-->
     <section class="about-section text-center" id="about">
@@ -160,26 +116,28 @@
 
 
 
-    <section class="projects-section bg-light" id="projects">
-        <div class="container px-4 px-lg-5">
-          <h2 class="text-center mb-4">Próximos Shows</h2>
-          <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" id="carouselShows"></div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Próximo</span>
-            </button>
-          </div>
-        </div>
-      </section>
-      
+<section class="projects-section bg-light" id="projects">
+  <div class="container px-4 px-lg-5">
+    <h2 class="text-center mb-4">Melhores Shows</h2>
+    <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carouselShows"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
 <div class="text-center">
     <a href="agenda.html" class="btn-agenda">Agenda Completa</a>
 </div>
+
+
 
 
 <!-- Modal de Informações do Show -->       
@@ -207,20 +165,18 @@
 
 
 <!-- Novo Contato -->
-<section class="new-contact-section bg-dark" id="new-contact">
+<section class="new-contact-section" id="new-contact">
   <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5">
+    <div class="row justify-content-center gx-4 gy-4">
 
       <!-- Localização -->
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 col-lg-4">
         <div class="new-contact-card py-4 h-100">
           <div class="new-contact-card-body text-center">
             <h4 class="text-uppercase m-0">Localização</h4>
             <hr class="my-4 mx-auto" />
             <iframe 
               src="https://www.google.com/maps?q=Av. Nove de Julho,+1266,+Poá,+São Paulo&output=embed" 
-              width="100%" 
-              height="350" 
               allowfullscreen 
               loading="lazy">
             </iframe>
@@ -229,10 +185,10 @@
       </div>
 
       <!-- Email -->
-      <div class="col-md-6 col-lg-3 mb-4">
+      <div class="col-md-6 col-lg-4">
         <div class="new-contact-card py-4 h-100">
           <div class="new-contact-card-body text-center">
-            <i class="fas fa-envelope text-primary mb-2"></i>
+            <i class="fas fa-envelope mb-2"></i>
             <h4 class="text-uppercase m-0">Email</h4>
             <hr class="my-4 mx-auto" />
             <div class="new-contact-info">
@@ -242,32 +198,15 @@
         </div>
       </div>
 
-     <!-- Telefone (WhatsApp) -->
-<div class="col-md-6 col-lg-3 mb-4">
-  <div class="new-contact-card py-4 h-100">
-    <div class="new-contact-card-body text-center">
-      <i class="fab fa-whatsapp text-success mb-2"></i>
-      <h4 class="text-uppercase m-0">WhatsApp</h4>
-      <hr class="my-4 mx-auto" />
-      <div class="new-contact-info">
-        <a href="https://wa.me/5511911297289" target="_blank">+55 (11) 91129-7289</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-      <!-- Grupo WhatsApp -->
-      <div class="col-md-6 col-lg-3 mb-4" id="grupozap"></div>
+      <!-- WhatsApp -->
+      <div class="col-md-6 col-lg-4">
         <div class="new-contact-card py-4 h-100">
           <div class="new-contact-card-body text-center">
-            <i class="fab fa-whatsapp text-primary mb-2"></i>
-            <h4 class="text-uppercase m-0">Grupo WhatsApp</h4>
+            <i class="fab fa-whatsapp mb-2"></i>
+            <h4 class="text-uppercase m-0">WhatsApp</h4>
             <hr class="my-4 mx-auto" />
             <div class="new-contact-info">
-              <a href="https://chat.whatsapp.com/II7y5Lcye2Q1yLaGwQuYK9" target="_blank">
-                Entrar no grupo
-              </a>
+              <a href="https://wa.me/5511911297289" target="_blank">+55 (11) 91129-7289</a>
             </div>
           </div>
         </div>
@@ -278,131 +217,117 @@
 </section>
 
 <style>
-  /* Estilo para a nova seção de Contato */
   .new-contact-section {
-    background-color: #1a1a1a;
+    background-color: #000;
     color: #fff;
-    padding: 60px 0;
+    padding: 60px 20px;
   }
 
-  /* Estilo para os novos cards de cada informação */
   .new-contact-card {
-    background-color: #333;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    background-color: #111;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
   }
 
-  /* Efeito de hover nos novos cards */
   .new-contact-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
 
-  /* Estilo para os ícones */
-  .new-contact-card .fas {
+  .new-contact-card-body {
+    padding: 20px;
+  }
+
+  .new-contact-card i {
     font-size: 2rem;
-    color: #ffffff;
+    color: #fff;
   }
 
-  /* Título das novas seções */
   .new-contact-card h4 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    text-transform: uppercase;
     color: #fff;
     margin: 0;
   }
 
-  /* Linha de separação */
   .new-contact-card hr {
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid #fff;
     width: 50px;
     margin: 20px auto;
   }
 
-  /* Estilo do texto pequeno */
-  .new-contact-card .new-contact-info {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
+  .new-contact-info {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    word-wrap: break-word;
   }
 
-  /* Estilo para links de email */
-  .new-contact-card .new-contact-info a {
-    color: #c72222;
+  .new-contact-info a {
+    color: #e74c3c;
     text-decoration: none;
+    word-break: break-word;
   }
 
-  /* Efeito hover no link de email */
-  .new-contact-card .new-contact-info a:hover {
+  .new-contact-info a:hover {
     text-decoration: underline;
   }
 
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .new-contact-section .col-md-4 {
-      margin-bottom: 20px;
-    }
-
-    .new-contact-section iframe {
-      height: 250px;
-    }
+  iframe {
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 250px;
   }
 
-  /* Ajuste para o iframe do Google Maps */
-  .new-contact-section iframe {
-    border-radius: 10px;
-    border: 0;
+  @media (max-width: 768px) {
+    iframe {
+      height: 200px;
+    }
   }
 </style>
 
 
-    <!-- Footer-->
-    <footer class="footer bg-black small text-center text-white-50">
-        <div class="container px-4 px-lg-5"> &copy; 2025 AN Rock Bar. Todos os direitos reservados.</div>
-    </footer>
+<!-- Footer -->
+<footer class="footer bg-black text-white-50 position-relative" style="padding: 8px 0; font-size: 0.75rem; line-height: 1.2;">
+  <div class="container px-4 px-lg-5 text-center" style="padding: 0;">
+    &copy; 2025 AN Rock Bar. Todos os direitos reservados.
+  </div>
+
+  <!-- Desenvolvedor -->
+  <div class="developer-info position-absolute end-0 bottom-0 p-1 text-end" style="font-size: 0.6rem; color: #999;">
+    Desenvolvido por <strong>Brito</strong><br />
+    <a href="https://wa.me/5511961201454" target="_blank" 
+       style="font-size: 0.55rem; padding: 2px 6px; border-radius: 12px; border: 1px solid #28a745; color: #28a745; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+      <i class="fab fa-whatsapp" style="font-size: 0.7rem;"></i> Fale Comigo
+    </a>
+  </div>
+
+  <style>
+    /* Remove espaçamento extra */
+    .footer {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      font-weight: 400;
+    }
+
+    @media (max-width: 576px) {
+      .developer-info {
+        position: static !important;
+        text-align: center !important;
+        margin-top: 6px;
+      }
+    }
+  </style>
+</footer>
+
+
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
-
-
-<!-- Modal Convite para o Grupo WhatsApp -->
-<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="whatsappModalLabel">Fique Ligado na Nossa Agenda de Shows!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Entre no nosso grupo de WhatsApp e receba as atualizações sobre a agenda de shows</p>
-        <a href="https://chat.whatsapp.com/II7y5Lcye2Q1yLaGwQuYK9" target="_blank">
-        Entrar no grupo
-        </a>
-        <button type="button" class="btn btn-secondary w-100 mt-3" data-bs-dismiss="modal">
-          Agora Não
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Espera 10 segundos após o carregamento da página
-  window.onload = function() {
-    setTimeout(function() {
-      // Mostra o modal de WhatsApp
-      var whatsappModal = new bootstrap.Modal(document.getElementById('whatsappModal'), {
-        keyboard: false  // Impede que o modal seja fechado com a tecla ESC
-      });
-      whatsappModal.show();  // Exibe o modal
-    }, 10000); // 10000 milissegundos = 10 segundos
-  };
-</script>
 
 <style> 
 /* Estilo para o modal com "visual de alerta" */
