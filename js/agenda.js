@@ -54,8 +54,8 @@ function renderizarShows(shows) {
     `;
     container.appendChild(card);
 
-    card.querySelector('.show-details').addEventListener('click', () => {
-      const selectedShow = todosShows[index];
+card.querySelector('.show-details').addEventListener('click', () => {
+  const selectedShow = show; 
       document.getElementById('showModalLabel').textContent = selectedShow.nome;
       document.getElementById('modalContent').innerHTML = `
         <p><strong>Data:</strong> ${formatarData(selectedShow.data)} | <strong>Horário:</strong> ${selectedShow.horario_inicio}</p>
