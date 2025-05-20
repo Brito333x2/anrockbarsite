@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $novoShow = [
         "nome" => $_POST['nome'],
+        "nome_fantasia" => !empty($_POST['nome_fantasia']) ? $_POST['nome_fantasia'] : "", // campo opcional
         "data" => $_POST['data'],
         "horario_inicio" => $_POST['horario_inicio'],
         "descricao" => $_POST['descricao'],
@@ -59,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome do Show:</label><br>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Show" required><br><br>
+
+                <label for="nome_fantasia">Nome Fantasia (opcional):</label><br>
+                <input type="text" id="nome_fantasia" name="nome_fantasia" placeholder="Nome Fantasia"><br><br>
 
                 <label for="data">Data:</label><br>
                 <input type="date" id="data" name="data" required><br><br>

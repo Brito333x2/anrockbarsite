@@ -12,6 +12,17 @@
  */
  
 /* Espaçamento geral da seção */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
 #projects {
   padding: 40px 0;
 }
@@ -56,7 +67,7 @@
   margin: 15px 0 20px;
   font-weight: 600;
   font-size: 1.2rem;
-  color: #333;
+  color: #ffffffce;
   flex-grow: 1;
 }
 
@@ -6148,7 +6159,7 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15%;
+  width: 5%; /* menor área clicável */
   padding: 0;
   color: #fff;
   text-align: center;
@@ -6157,13 +6168,16 @@ textarea.form-control-lg {
   opacity: 0.5;
   transition: opacity 0.15s ease;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .carousel-control-prev,
   .carousel-control-next {
     transition: none;
   }
 }
-.carousel-control-prev:hover, .carousel-control-prev:focus,
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
 .carousel-control-next:hover,
 .carousel-control-next:focus {
   color: #fff;
@@ -6172,23 +6186,26 @@ textarea.form-control-lg {
   opacity: 0.9;
 }
 
+/* Posiciona os botões mais para fora */
 .carousel-control-prev {
-  left: 0;
+  left: -1rem;
 }
 
 .carousel-control-next {
-  right: 0;
+  right: -1rem;
 }
 
+/* Ajusta tamanho e posição dos ícones */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
   width: 2rem;
   height: 2rem;
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position: center;
   background-size: 100% 100%;
 }
+
 
 /* rtl:options: {
   "autoRename": true,
@@ -11628,5 +11645,4 @@ body {
 .footer {
   padding: 5rem 0;
 }
-
 

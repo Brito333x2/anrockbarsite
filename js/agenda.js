@@ -38,7 +38,21 @@ function renderizarShows(shows) {
   const container = document.getElementById('showsContainer');
   container.innerHTML = '';
 
+  const agora = new Date();
+
   shows.forEach((show, index) => {
+    // Criar a data do show (inicio do dia do show)
+    const [ano, mes, dia] = show.data.split('-');
+    const dataShow = new Date(ano, mes - 1, dia);
+
+    // Criar data limite: dia seguinte às 3h da manhã
+    const dataLimite = new Date(ano, mes - 1, parseInt(dia) + 1, 3, 0, 0);
+
+    // Se a data atual já passou da data limite, não exibe o show
+    if (agora > dataLimite) {
+      return; // pula para o próximo show
+    }
+
     const card = document.createElement('div');
     card.className = 'col-md-6 mb-4';
     card.innerHTML = `
@@ -54,8 +68,8 @@ function renderizarShows(shows) {
     `;
     container.appendChild(card);
 
-card.querySelector('.show-details').addEventListener('click', () => {
-  const selectedShow = show; 
+    card.querySelector('.show-details').addEventListener('click', () => {
+      const selectedShow = show;
       document.getElementById('showModalLabel').textContent = selectedShow.nome;
       document.getElementById('modalContent').innerHTML = `
         <p><strong>Data:</strong> ${formatarData(selectedShow.data)} | <strong>Horário:</strong> ${selectedShow.horario_inicio}</p>
@@ -99,7 +113,6 @@ card.querySelector('.show-details').addEventListener('click', () => {
         </div>
       `;
 
-      // Aplicar efeito hover no botão comprar ingressos
       const comprarBtn = document.querySelector('#modalContent a');
       comprarBtn.addEventListener('mouseenter', () => {
         comprarBtn.style.background = 'linear-gradient(45deg, #218838, #1e7e34)';
@@ -119,11 +132,15 @@ function aplicarFiltros() {
   const mesSelecionado = document.getElementById('monthFilter').value;
 
   const filtrados = todosShows.filter(show => {
-    const nomeInclui = show.nome.toLowerCase().includes(termo);
+    const nomeFantasia = show.nome_fantasia ? show.nome_fantasia.toLowerCase() : '';
+    const nome = show.nome ? show.nome.toLowerCase() : '';
+    const buscaValida = nomeFantasia.includes(termo) || nome.includes(termo);
+
     const [ano, mes] = show.data.split('-');
     const mesDoShow = `${ano}-${mes}`;
     const mesBate = !mesSelecionado || mesSelecionado === mesDoShow;
-    return nomeInclui && mesBate;
+
+    return buscaValida && mesBate;
   });
 
   renderizarShows(filtrados);

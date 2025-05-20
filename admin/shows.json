@@ -1,6 +1,7 @@
 [
     {
         "nome": "Massacration em POÁ",
+        "nome_fantasia": "Nacional ",
         "data": "2025-06-07",
         "horario_inicio": "18:00",
         "descricao": "🔥 MASSACRATION – WORLD TOUR 2025! 🔥   OUVINTES DO METAL SUPREMO, PREPAREM-SE!   Os deuses do metal, os senhores das guitarras flamejantes, os verdadeiros mestres do riff destruidor estão de volta à estrada!   O Massacration anuncia sua nova turnê, trazendo o peso, a glória e a fúria do metal para os palcos do Brasil!   SOLOS MAIS VELOZES QUE O PRÓPRIO RAIO! ⚡ GRITOS QUE PODEM ABRIR PORTAIS INTERDIMENSIONAIS!",
@@ -10,39 +11,10 @@
         "melhores": true
     },
     {
-        "nome": "SEATLE NIGHT",
-        "data": "2025-05-16",
-        "horario_inicio": "18:00",
-        "descricao": "Mais uma noite de SEATLE NIGHT com muito som de qualidade com as bandas:   NIRVANA LIVE TRIBUTO   UNDECIDED - SILVERCHAIR COVER   UNDERSTATE STONE - STONE TEMPLE PILOTS   EXPLODER - SOUNDGARDEN COVER   Bar abre as 18hrs.   Showtime as 21hrs.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
-        "preco": "20",
-        "imagem": "uploads\/show_68280207d76d4.webp",
-        "url_compra": "https:\/\/articket.com.br\/e\/3558\/seatle-night",
-        "melhores": false
-    },
-    {
-        "nome": "ARGNA\/ HELLSPAWN\/ PERPETUAL SIGN",
-        "data": "2025-05-17",
-        "horario_inicio": "18:00",
-        "descricao": "Estreia da Banda ARGNA (Angra cover) tocando grandes sucessos com as bandas convidadas   HELLSPAWN- ICED EARTH COVER   PERPETUAL SIGN   Bar abre as 18   Showtime as 21hrs.",
-        "preco": "20",
-        "imagem": "uploads\/show_68280ca767046.webp",
-        "url_compra": "https:\/\/articket.com.br\/e\/3559\/argna-hellspawn-perpetual-sign",
-        "melhores": false
-    },
-    {
-        "nome": "BANDA A DEAF IN EAR",
-        "data": "2025-05-18",
-        "horario_inicio": "18:00",
-        "descricao": "Passando por classicos de todas as épocas de Jimi Hendrix, Beatles, Pink floyd, Stevie Wonder até John Mayer, Muse, Lenny Kravitz, Pearl Jam entre outros.   BAR ABRE AS 18H.   SHOWTIME AS 21H.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
-        "preco": "20",
-        "imagem": "uploads\/show_68280efcc711c.webp",
-        "url_compra": "https:\/\/articket.com.br\/e\/3570\/banda-a-deaf-in-ear",
-        "melhores": false
-    },
-    {
         "nome": "HAYGAN",
+        "nome_fantasia": "rock nacional",
         "data": "2025-05-23",
-        "horario_inicio": "18:08",
+        "horario_inicio": "18:00",
         "descricao": "Uma banda de rock de São Paulo especializada em proporcionar uma experiência imersiva e nostálgica. Nosso repertório reúne os maiores clássicos do rock nacional e internacional das décadas de 70, 80 e 90, transportando o público para uma viagem inesquecível no tempo.   Bar abre as 18hrs. Showtime as 22hrs.",
         "preco": "20",
         "imagem": "uploads\/show_68280f3371895.webp",
@@ -51,6 +23,7 @@
     },
     {
         "nome": "IMAGINARI'S\/ DAOS\/ LINKIN PROJECT",
+        "nome_fantasia": "SYSTEM OF A DOWN, EVANESCENCE, LINKIN PARK",
         "data": "2025-05-24",
         "horario_inicio": "18:00",
         "descricao": "Mais uma noite fantástica com muito som de qualidade com a bandas:   DAOS - SYSTEM OF A DOWN   IMAGINARY'S - EVANESCENCE   LINKIN PROJECT - LINKIN PARK   Bar abre as 18hrs.   Showtime as 21hrs.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
@@ -61,6 +34,7 @@
     },
     {
         "nome": "DAVID MORAES & TEN",
+        "nome_fantasia": "grunges e rage againt the machine",
         "data": "2025-05-30",
         "horario_inicio": "18:00",
         "descricao": "Uma noite de muito som de qualidade com DAVID MORAES (classics rock e blues) & TEN ( grunges e rage againt the machine).   Bar abre as 18hrs.   Showtime as 22hrs.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
@@ -71,6 +45,7 @@
     },
     {
         "nome": "CPM22 & GREEN DAY & NX ZERO COVERS",
+        "nome_fantasia": "",
         "data": "2025-05-31",
         "horario_inicio": "18:00",
         "descricao": "Vem com a gente curtir uma noite de sabado fantastica com as bandas:   Greeners day - Green Day   Coragem - Cpm22   Nx 011 - Nx zero   Bar abre as 18hrs.   Showtime as 22hrs.   VEM PARA O MEHOR ROCK BAR DA REGIÃO ONDE AS MELHORES BANDAS TOCAM!!",
@@ -87,7 +62,7 @@
         "preco": "20",
         "imagem": "uploads\/show_68281038dba1a.webp",
         "url_compra": "https:\/\/articket.com.br\/e\/3635\/murdock-rock-band",
-        "melhores": false
+        "melhores": true
     },
     {
         "nome": "OUTRA FREQUÊNCIA 5º EDIÇÃO POÁ",
@@ -101,16 +76,18 @@
     },
     {
         "nome": "HARDROCK NIGHT",
+        "nome_fantasia": "White Snake ",
         "data": "2025-06-13",
         "horario_inicio": "18:00",
         "descricao": " Uma noite de puro som de qualidade com as bandas: Love hunter's - White Snake Tributo LOST80S Hard Rock Experience   Bar abre as 18hrs. Showtime as 22hrs.   Vem para o melhor Rock Bar da Região onde as melhores bandas tocam!!!",
         "preco": "20",
         "imagem": "uploads\/show_6828109541ede.webp",
         "url_compra": "https:\/\/articket.com.br\/e\/3620\/hardrock-night",
-        "melhores": false
+        "melhores": true
     },
     {
         "nome": "BFMV & A7X COVER",
+        "nome_fantasia": "BULLET FOR VALENTINE, AVENGED SEVENFOLD",
         "data": "2025-06-20",
         "horario_inicio": "18:00",
         "descricao": " Uma noite de sexta imperdivel com duas bandas sensacionais.   POISONOUS - BULLET FOR VALENTINE NIGHTMARE - AVENGED SEVENFOLD   Bar abre as 18hrs. Showtime as 22hrs.",
@@ -121,6 +98,7 @@
     },
     {
         "nome": "GRUNGE NIGHT ROCK",
+        "nome_fantasia": "Creed Pearl Jam",
         "data": "2025-06-21",
         "horario_inicio": "18:00",
         "descricao": "Uma noite de muito som com Creed e Pearl Jam.   Bar abre as 18hrs   Shotime as 22hrs.   Vem para o melhor rock da região onde as melhores bandas tocam!!!",
@@ -141,6 +119,7 @@
     },
     {
         "nome": "FOOSE & AUDIOSTONE",
+        "nome_fantasia": "AUDIOSLAVE ",
         "data": "2025-06-27",
         "horario_inicio": "18:00",
         "descricao": " Sua noite de Sexta esta garantida com muito som bom com as bandas:   FOOSE tocando muitos sucessos do Rock. AUDIOSTONE - AUDIOSLAVE tributo   Bar abre as 18hrs. Showtime as 22hrs.",
@@ -151,6 +130,7 @@
     },
     {
         "nome": "THRASH ATTACK",
+        "nome_fantasia": "Sepultara Slayer Exodus",
         "data": "2025-06-28",
         "horario_inicio": "18:00",
         "descricao": " Mais uma noite fantástica com um especial de THRASH METAL das bandas:   Roots - Sepultara   Ghost of War - Slayer   Merchants - Exodus   Bar abre as 18hrs.   Shotime as 22hrs.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
@@ -181,6 +161,7 @@
     },
     {
         "nome": "FRESNO & SUBLIME COVERS",
+        "nome_fantasia": "Sublime Fresno",
         "data": "2025-07-06",
         "horario_inicio": "18:00",
         "descricao": "Uma noite especial com som que nos faz voltar no tempo com as bandas: Low dog - Sublime Catharma - Fresno   Bar abre as 18hrs. Shotime as 21 hrs.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!",
@@ -201,6 +182,7 @@
     },
     {
         "nome": "AN THRASH FEST I",
+        "nome_fantasia": "EXODUS METALLICA SEPULTURA PANTERA LAMB OF GOD ",
         "data": "2025-07-12",
         "horario_inicio": "18:00",
         "descricao": "Uma noite imperdível para fãs de Trash Metal com nosso AN THRASH FEST com as bandas:   FUNERAL BLOOD - EXODUS TRIBUTE BRAZIL   LORDS OF SUMMER - METALLICA TRIBUTE   ARISE - SEPULTURA TRIBUTE   WARHEAD - PANTERA TRIBUTE   REDNECK - LAMB OF GOD COVER BRASIL   BAR ABRE AS 18H.   SHOWTIME AS 21HRS.   VEM PARA O MELHOR ROCK BAR DA REGIÃO ONDE AS MELHORES BANDAS TOCAM!!!!",
@@ -221,6 +203,7 @@
     },
     {
         "nome": "AN METAL FEST II",
+        "nome_fantasia": "Avantasia Stratovarius Epica HammerFall Iced Earth Edguy Kamelot ",
         "data": "2025-07-19",
         "horario_inicio": "18:00",
         "descricao": "E a 2ºedição do maior festival de bandas de metal do Alto Tietê já tem data e horta marcado m=no melhor rock bar da região.   com as bandas:   AVANTASIA TRIBUTO BRASIL   ICED EARTH - (HELLS PAWN)   KAMELOT - (KARMA)   EDGUY - (MANDRAKE)   HAMMERFALL - (HEARTS ON FIRE)   STRATOVARIUS - (VISIONS)   INFORMAÇÕES: 11-1191129-7289",
@@ -241,6 +224,7 @@
     },
     {
         "nome": "ESPECIAL HOLLYWOOD ROCK 93",
+        "nome_fantasia": "Nirvana  ALICE IN CHAINS",
         "data": "2025-07-26",
         "horario_inicio": "18:00",
         "descricao": "Uma noite para fãs de NIRVANA E ALICE IN CHAINS e relembrar a época incrível desse festival HOLLYWOOD ROCK 93.   Nirvana Live tributo   Broken Chains - ALICE IN CHAINS   Bar abre as 18h.   Showtime as 22h.   Vem para o melhor rock bar da região onde as melhores bandas tocam!!!!!",
@@ -251,6 +235,7 @@
     },
     {
         "nome": "ROCKIXE - RAUL SEIXAS COVER",
+        "nome_fantasia": "Nacional ",
         "data": "2025-08-01",
         "horario_inicio": "18:00",
         "descricao": "UMA NOITE COM MUITO RAUL SEIXAS E TAMBEM COVERS NACIONAIS.   BAR ABRE AS 18HRS. SHOWTIME AS 22HRS.   VEM PARA O MELHOR ROCK BAR DA REGIÃO ONDE AS MELHORES BANDAS TOCAM!!!!",
@@ -261,6 +246,7 @@
     },
     {
         "nome": "UNS E OUTROS",
+        "nome_fantasia": "Nacional ",
         "data": "2025-08-03",
         "horario_inicio": "18:00",
         "descricao": "Pela primeira vez no Palco do AN ROCK BAR a banda UNS E OUTROS em um show que você não pode perder!!!! Banda convidada 4MILIGRAMAS.   Bar abre as 18hrs. Showtime apartir das 20:30   Apoio: Powersound Calejon Tattoo Asaphe Feeling Bloco Almada",
@@ -271,6 +257,7 @@
     },
     {
         "nome": "EMO NIGHT",
+        "nome_fantasia": "My Chemical Romance Blink182 Green Day",
         "data": "2025-08-09",
         "horario_inicio": "18:00",
         "descricao": " Uma noite muito nostalgica com 3 bandas sensacionais que marcaram um geração!!!   Blink182 Cover Brasil My Chemical Romance COver Brasil Green Day - Greeners day   Bar abre as 18hrs. ShowTime as 21hrs.",
@@ -281,6 +268,7 @@
     },
     {
         "nome": "VELHAS VIRGENS",
+        "nome_fantasia": "Nacional ",
         "data": "2025-08-16",
         "horario_inicio": "18:00",
         "descricao": " MAIS UMA NOITE INCRIVEL COM VELHAS VIRGENS E SUA ENERGIA CONTAGIANTE!!! IMPERDIVEL!!!!! COM AS BANDAS DE ABERTURA HAYGAN E MURDOCK COM MUITO ROCK PRA AQUECER O PALCO.   BAR ABRE AS 18HRS. SHOWTIME AS 21 HRS.   VEM PARA O MELHOR ROCK BAR DA REGIÃO ONDE AS MELHORAS BANDAS TOCAM!!!!!",
@@ -311,6 +299,7 @@
     },
     {
         "nome": "SOAD & SLIPKNOT & LIMP BIZKIT COVERS",
+        "nome_fantasia": "SYSTEM OF A DOWN LIMP BIZKIT SLIPKNOT",
         "data": "2025-08-23",
         "horario_inicio": "18:00",
         "descricao": " Uma Noite de muito New Metal com as bandas:   DAOS - Sistem of Down cover No Sex - Limp Bizkit cover Crowz - Slipknot cover   Bar Abre as 18h. Showtime as 22hrs.   Vem para o melhor rock bar da região onde as melhores banda tocam!!!!",
@@ -341,6 +330,7 @@
     },
     {
         "nome": "NOITE HARD ROCK",
+        "nome_fantasia": "BON JOV SKID ROW Guns N' Roses",
         "data": "2025-09-20",
         "horario_inicio": "18:00",
         "descricao": "UMA NOITE INCRIVEL DE HARD ROCK COM AS BANDAS:   LIVING SIN - BON JOVI PSYCHO LOVER - SKID ROW ONE IN A MILLION - GUN   BAR ABRE AS 18HRS. SHOWTIME AS 21HRS.",
@@ -351,6 +341,7 @@
     },
     {
         "nome": "HALLOWEEN 4º DIA",
+        "nome_fantasia": "Ghost Rammstein Marilyn Manson",
         "data": "2025-08-25",
         "horario_inicio": "18:00",
         "descricao": "Nossa Halloween com assas super bandas para animar essa noite fantasmagorica.   Ghosts - Ghost cover Industriestein - Rammstein Cover Borne Villain - Marilyn Manson cover   Vem curtir essa festa no melhor rock bar da região onde as melhores bandas tocam!!!",
@@ -367,6 +358,17 @@
         "preco": "70",
         "imagem": "uploads\/show_68281b4d5af9d.jpg",
         "url_compra": "https:\/\/www.sympla.com.br\/evento\/esteban-tavares-em-poa-sp\/2949523?fbclid=PAZXh0bgNhZW0CMTEAAafZ78zdaZ_oi6NzEVpJ9Uh1kE5Ngfe8uqNy63SRw9jI9esr6vNTkixKJgI-8g_aem_ZdmXPd-h0o0FJ52j7WWyQw&referrer=l.instagram.com",
+        "melhores": true
+    },
+    {
+        "nome": "Korn & Rage Against the Machine CV",
+        "nome_fantasia": "Korn Rage Against the Machine",
+        "data": "2025-08-02",
+        "horario_inicio": "18:00",
+        "descricao": "Sabado imperdível com 2 bandas peso. Klowns - KORN (aniversário 20 anos de banda). Voz em Fúria - RAGE AGAINST THE MACHINE.   Bar Abre 18hrs. SHOWTIME AS 22HRS.",
+        "preco": "25",
+        "imagem": "uploads\/show_682bf9f117993.webp",
+        "url_compra": "https:\/\/articket.com.br\/e\/3932\/korn-rage-against-the-machine-cv",
         "melhores": true
     }
 ]

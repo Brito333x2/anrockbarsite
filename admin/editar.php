@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['excluir'])) {
 
     $shows[$id] = [
         "nome" => $_POST['nome'],
+        "nome_fantasia" => !empty($_POST['nome_fantasia']) ? $_POST['nome_fantasia'] : "",
         "data" => $_POST['data'],
         "horario_inicio" => $_POST['horario_inicio'],
         "descricao" => $_POST['descricao'],
@@ -85,6 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['excluir'])) {
         <form method="POST" enctype="multipart/form-data" class="edit-form">
             <label for="nome">Nome:</label><br>
             <input name="nome" id="nome" value="<?= htmlspecialchars($show['nome']) ?>" required><br><br>
+
+            <label for="nome_fantasia">Nome Fantasia (opcional):</label><br>
+            <input name="nome_fantasia" id="nome_fantasia" value="<?= htmlspecialchars($show['nome_fantasia'] ?? '') ?>"><br><br>
 
             <label for="data">Data:</label><br>
             <input type="date" name="data" id="data" value="<?= htmlspecialchars($show['data']) ?>" required><br><br>
