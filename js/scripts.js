@@ -177,3 +177,55 @@ window.addEventListener('load', () => {
     }, 1000);
   }, 2000);
 });
+
+
+// LIVE
+
+   const API_KEY = 'AIzaSyDQe1Ppr-ryFssou4Orf2g27i8SxXeN_NU';
+    const CHANNEL_ID = 'UCaams8iuE4i41xVSe_Y0vWA';
+
+    const liveContainer = document.getElementById('live-container');
+
+    async function checkLiveStream() {
+      try {
+        // Buscar vídeos ao vivo do canal
+        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}`;
+        const searchResponse = await fetch(searchUrl);
+        const searchData = await searchResponse.json();
+
+        if (searchData.items && searchData.items.length > 0) {
+          const videoId = searchData.items[0].id.videoId;
+
+          // Verifica se o vídeo permite embed e está ativo
+          const videoUrl = `https://www.googleapis.com/youtube/v3/videos?part=status,liveStreamingDetails&id=${videoId}&key=${API_KEY}`;
+          const videoResponse = await fetch(videoUrl);
+          const videoData = await videoResponse.json();
+
+          const video = videoData.items && videoData.items[0];
+          if (
+            video &&
+            video.status.embeddable &&
+            video.liveStreamingDetails &&
+            video.liveStreamingDetails.actualStartTime
+          ) {
+            liveContainer.innerHTML = `
+              <iframe 
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+              </iframe>
+            `;
+          } else {
+            liveContainer.innerHTML = '';
+            console.warn('Nenhuma live ativa ou vídeo não permite embed.');
+          }
+        } else {
+          liveContainer.innerHTML = '';
+        }
+      } catch (error) {
+        liveContainer.innerHTML = '';
+        console.error('Erro ao verificar live:', error);
+      }
+    }
+
+    checkLiveStream();
